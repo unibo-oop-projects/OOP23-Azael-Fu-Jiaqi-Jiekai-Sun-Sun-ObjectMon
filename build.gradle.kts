@@ -15,7 +15,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.danilopianini.gradle-java-qa") version "1.24.1"
 
-    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.0.4-dev03-d2a3b5e"
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.0.5-dev02-c451bb9"
 }
 
 
