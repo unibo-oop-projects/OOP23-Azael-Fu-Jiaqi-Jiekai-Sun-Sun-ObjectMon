@@ -12,10 +12,10 @@ plugins {
      * In order to create it, launch the "shadowJar" task.
      * The runnable jar will be found in build/libs/projectname-all.jar
      */
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "9.3.1"
     id("org.danilopianini.gradle-java-qa") version "1.24.1"
 
-    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.0.5-dev02-c451bb9"
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.1.80"
 }
 
 
@@ -31,11 +31,12 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:3.14.0")
     // Mockito for mocking in tests
     implementation("org.mockito:mockito-core:5.10.0")
-    // JUnit API and testing engine
-    val jUnitVersion = "5.10.1"
-    // when dependencies share the same version, grouping in a val helps to keep them in sync
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
+    // The BOM (Bill of Materials) synchronizes all the versions of Junit coherently.
+    testImplementation(platform("org.junit:junit-bom:5.13.2"))
+    // The annotations, assertions and other elements we want to have access when compiling our tests.
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    // The engine that must be available at runtime to run the tests.
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 application {
