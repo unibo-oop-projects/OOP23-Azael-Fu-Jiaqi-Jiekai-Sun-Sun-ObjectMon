@@ -18,6 +18,7 @@ plugins {
     id("org.danilopianini.unibo-oop-gradle-plugin") version "1.1.80"
 }
 
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
 
 repositories { // Where to search for dependencies
     mavenCentral()
